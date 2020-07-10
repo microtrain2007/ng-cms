@@ -1,6 +1,9 @@
 <h1>Users</h1>
 <ul *ngIf="users">
   <li *ngFor="let user of users">
-    <a [routerLink]="['/users/view/', user._id]">{{user.username}}</a>
+    <a [routerLink]="['/users/view/', user._id]">{{user.username}}</a><br>
+    {{user.last_name}}, {{user.first_name}}<br>
+    {{ user.email }}
+    <hr>
   </li>
 </ul>
