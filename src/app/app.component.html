@@ -1,11 +1,11 @@
-<!-- nav -->
+<nav>
 <!-- <button [routerLink]="/">Home</button> -->
 <!-- <nav *ngIf="nav.visible"> -->
-<nav>
+<!-- <nav *ngIf="this.currentRoute!=='login'" navigation> -->
   <button [routerLink]="['/login']">Login</button>
   <button [routerLink]="['/register']">Register</button>
-  <button [routerLink]="['/articles']">Articles</button>
-<nav *ngIf="currentUser">
+  <!-- <button [routerLink]="['/articles']">Articles</button> -->
+<!-- <nav *ngIf="currentUser"> -->
   <button [routerLink]="['/users']">Users</button>
   <button [routerLink]="['/users/create']">New User</button>
   <button [routerLink]="['/articles']">Articles</button>
@@ -14,3 +14,4 @@
 </nav>
 
 <router-outlet></router-outlet>
+

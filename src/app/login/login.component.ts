@@ -4,6 +4,8 @@ import { UserService } from '../services/user.service';
 
 // 1. Import the User object (model)
 import { User } from '../models/user';
+//Add a route if not logged in
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,22 +18,26 @@ export class LoginComponent implements OnInit {
   // 3. Instantiate an errors array
   error: any;
 
-  // 4. Clear out the contructor login
-  constructor(private userService: UserService) {}
+  // 4. Clear out the contructor login //Add a route if not logged in
+  constructor(private userService: UserService,
+    private router: Router) {}
 
   ngOnInit() {}
+  showNav = true;
 
   // 5. Add a login method
   login(): void{
 
     this.userService.login(this.user).subscribe(
       (response:any)=>{
-        console.log(response);
+        // console.log(response);
 
         if(response.success == false){
           this.error=true;
         }
-
+        //Add a route if not logged in
+        else
+          this.router.navigate(['/articles']);
       }
     );
   }
